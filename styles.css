@@ -1,0 +1,78 @@
+/* --- Box sizing --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* --- Reset margins --- */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure,
+picture {
+  margin: 0;
+}
+
+html {
+  background: #018ded url(https://unsplash.it/1500/1000?image=881&blur=5);
+  background-size: cover;
+  font-family: "helvetica neue";
+  text-align: center;
+  font-size: 10px;
+}
+
+body {
+  margin: 0;
+  font-size: 2rem;
+  display: flex;
+  flex: 1;
+  min-height: 100vh;
+  align-items: center;
+}
+
+.clock {
+  width: 30rem;
+  height: 30rem;
+  border: 20px solid white;
+  border-radius: 50%;
+  margin: 50px auto;
+  position: relative;
+  padding: 2rem;
+  box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.1), inset 0 0 0 3px #efefef,
+    inset 0 0 10px black, 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.clock-face {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform: translateY(-3px); /* account for the height of the clock hands */
+}
+
+.hand {
+  width: 50%;
+  height: 6px;
+  background: black;
+  position: absolute;
+  top: 50%;
+  transform-origin: 100%; /* Move along x-axis so starting point is centered */
+  transform: rotate(
+    90deg
+  ); /* Block element by default so is horizontal. Need to start it a 0 deg/12:00 */
+  transition: all 0.05s;
+  transition-timing-function: cubic-bezier(
+    0.1,
+    2.7,
+    0.58,
+    1
+  ); /* Gives more of a natural ticking motion */
+}
+
+/* Perhaps for when hands reach the top use js to temporarily take off "trnsition: all 0.05s" to stop the jumping*/
+/*  */
